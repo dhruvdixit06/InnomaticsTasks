@@ -1,0 +1,6 @@
+n=int(input())
+nroll=set(map(int,input().split()))
+b=int(input())
+broll=set(map(int,input().split()))
+res=nroll.symmetric_difference(broll)
+print(len(res))
