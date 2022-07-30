@@ -1,0 +1,7 @@
+a=int(input())
+b=int(input())
+ans=divmod(a,b)
+res=list(ans)
+print(res[0])
+print(res[1])
+print(ans)
