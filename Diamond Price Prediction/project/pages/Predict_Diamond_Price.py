@@ -7,7 +7,7 @@ st.set_page_config(page_title="Predict", page_icon="🤔",layout="wide")
 st.title(" Diamond Price Prediction ")
 
 scalar= load(open('pickle/standard_scaler.pkl', 'rb'))
-model= load(open('pickle/xg_model.pkl', 'rb'))
+model= load(open('pickle/lr_model.pkl', 'rb'))
 
 def predict(carat, cut, color, clarity, depth, table, x, y, z):
 
@@ -62,12 +62,12 @@ def predict(carat, cut, color, clarity, depth, table, x, y, z):
 cut = st.selectbox('Select the CUT rate of Diamond: ', list(df['cut'].unique()))
 color = st.selectbox('Select the COLOR rate of Diamond: ', list(df['color'].unique()))
 clarity = st.selectbox('Select the CLARITY rate of Diamond: ', list(df['clarity'].unique()))
-carat = st.slider('Carat Weight of the Diamond ', min_value=0.1, max_value=10.00, value=1.00)
-x = st.slider('Diamond Length (X) in mm: ', min_value=0.1, max_value=20.0, value=1.0)
+carat = st.slider('Carat Weight of the Diamond ', min_value=0.1, max_value=6.00, value=1.00)
+x = st.slider('Diamond Length (X) in mm: ', min_value=0.1, max_value=11.0, value=1.0)
 y = st.slider('Diamond Width (Y) in mm: ', min_value=0.1, max_value=60.0, value=1.0)
-z = st.slider('Diamond Height (Z) in mm: ', min_value=0.1, max_value=40.0, value=1.0)
-depth = st.slider('Diamond Depth Percentage: ', min_value=0.1, max_value=100.0, value=1.0)
-table = st.slider('Diamond Table Percentage: ', min_value=0.1, max_value=100.0, value=1.0)
+z = st.slider('Diamond Height (Z) in mm: ', min_value=0.1, max_value=32.0, value=1.0)
+depth = st.slider('Diamond Depth Percentage: ', min_value=0.1, max_value=80.0, value=1.0)
+table = st.slider('Diamond Table Percentage: ', min_value=0.1, max_value=95.0, value=1.0)
 
 if st.button('Predict'):
     price = predict(carat, cut, color, clarity, depth, table, x, y, z)
