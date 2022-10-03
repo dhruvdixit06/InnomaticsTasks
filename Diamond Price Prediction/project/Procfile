@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run 💎About_Diamond.py
+web: sh setup.sh && streamlit run About_Diamond.py
